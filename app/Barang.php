@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Barang;
+use App\peminjam;
+use App\Anggota;
 class Barang extends Model
 {
     //
@@ -13,7 +15,7 @@ class Barang extends Model
     protected $visible = ['nama_barang','jenis_barang','stok','jumlah'];
 public $timestamps = true;
 
-public function barang(){
-	return $this->belongsTo('App\Barang', 'barang_id');
+public function peminjam(){
+	return $this->belongsTo('App\peminjam', 'peminjam_id');
 }
 }

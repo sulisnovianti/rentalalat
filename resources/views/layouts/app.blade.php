@@ -11,11 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/font-awesome.min.css') }}" rel='stylesheet' type='text/css'>
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/jquery.dataTables.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/dataTables.bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -42,17 +38,18 @@
                     <ul class="nav navbar-nav">
                         @if (Auth::check())
                             <li><a href="{{ url('/home') }}">Dashboard</a></li>
-                            @endif
-                            @role('admin')
-                             <li><a href="{{ route('barang.index') }}">Barang</a></li>
+                        @endif
+                            <li><a href="{{ route('barang.index') }}">Barang</a></li>
                             <li><a href="{{ route('anggota.index') }}">Anggota</a></li>
-                            @endrole
+                            <li><a href="{{ route('peminjam.index') }}">Peminjam</a></li>
+                            
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                           
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Daftar</a></li>
                         @else
@@ -85,10 +82,6 @@
     </div>
 
     <!-- Scripts -->
-    <script sec="/js/custom.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>
-    @yield('scripts')
+      <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

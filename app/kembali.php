@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Barang;
+use App\peminjam;
+use App\Anggota;
 
 class kembali extends Model
 {

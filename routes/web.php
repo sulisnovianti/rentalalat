@@ -20,10 +20,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware'=>['auth']], function(){
+Route::group(['middleware'=>['auth']], function(){
 	//Route diisi disini
 	Route::resource('barang','BarangsController');
 	Route::resource('anggota','AnggotasController');
+	Route::resource('peminjam','PeminjamsController');
+
 
 });
 

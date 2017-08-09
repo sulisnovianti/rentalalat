@@ -3,46 +3,44 @@
 <div class="container">
 <div class="row">
 
-	<center><h1>Data Barang</h1></center>
+	<center><h1>Data Anggota</h1></center>
 	<div class="panel panel-primary">
-	<div class="panel-heading">Data Barang</div>
-	<div class="panel-title pull-right"><a href="/barang/create">Tambah Data</a></div>
+	<div class="panel-heading">Data Anggota</div>
+	<div class="panel-title pull-right"><a href="/anggota/create">Tambah Data</a></div>
 	</div>
 
 	<div class="panel-body">
 		<table class="table">
 			<thead>
 				<tr>
-				    <th>Jenis Barang</th>
-					<th>Nama Barang</th>
-					<th>Stok</th>
-					<th>Jumlah </th>
-					<th colspan="3">Action</th>
+				    <th>Nama Anggota</th>
+					<th>Jenis Kelamin</th>
+					<th>Status</th>
+										<th colspan="3">Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($barang as $data)
+				@foreach($anggota as $data)
 				<tr>
-					<td>{{$data->jenis_barang}}</td>
-					<td>{{$data->nama_barang}}</td>
-					<td>{{$data->stok}}</td>
-					<td>{{$data->jumlah}}</td>
+					<td>{{$data->nama}}</td>
+					<td>{{$data->jk}}</td>
+					<td>{{$data->status}}</td>
                 <td>
                 	                
 
                 </td>
                 <td>
-                <a class="btn btn-warning" href="/barang/{{$data->id}}/edit">Edit</a>
+                <a class="btn btn-warning" href="/anggota/{{$data->id}}/edit">Edit</a>
                 </td>
 
                   <td>
-                <a class="btn btn-primary" href="/barang/{{$data->id}}">show</a>
+                <a class="btn btn-primary" href="/anggota/{{$data->id}}">show</a>
                 </td>
 
 
 
                 <td>
-                	<form action="{{route('barang.destroy',$data->id)}}" method="post" >
+                	<form action="{{route('anggota.destroy',$data->id)}}" method="post" >
           
                 		<input type="hidden" name="_method"  value="DELETE">
                 		<input type="hidden" name="_token" >

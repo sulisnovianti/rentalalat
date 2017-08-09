@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\arang;
-class BarangsController extends Controller
+use App\Anggota;
+class AnggotasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class BarangsController extends Controller
     public function index()
     {
         //
-        $barang = Barang::all();
-        return view('barang.index',compact('barang'));
+          $anggota = Anggota::with('peminjam')->get();
+        return view('anggota.index',compact('anggota'));
+           
     }
 
     /**
@@ -26,7 +27,8 @@ class BarangsController extends Controller
     public function create()
     {
         //
-         return view('barang.create');
+                 return view('anggota.create');
+
     }
 
     /**
@@ -38,13 +40,13 @@ class BarangsController extends Controller
     public function store(Request $request)
     {
         //
-         $barang = new barang;
-        $barang->jenis_barang= $request->a;
-        $barang->nama_barang= $request->b;
-        $barang->stok = $request->c;
-        $barang->jumlah = $request->d;
-        $barang->save();
-        return redirect('barang');
+        $anggota = new anggota;
+        $anggota->nama= $request->a;
+        $anggota->jk= $request->b;
+        $anggota->status = $request->c;
+       
+        $anggota->save();
+        return redirect('anggota');
     }
 
     /**
@@ -56,8 +58,8 @@ class BarangsController extends Controller
     public function show($id)
     {
         //
-          $barang = barang::findOrFail($id);
-        return view('barang.show',compact('barang'));
+        $anggota = anggota::findOrFail($id);
+        return view('anggota.show',compact('anggota'));
     }
 
     /**
@@ -69,8 +71,8 @@ class BarangsController extends Controller
     public function edit($id)
     {
         //
-        $barang = barang::findOrFail($id);
-        return view('barang.edit',compact('barang'));
+         $anggota = anggota::findOrFail($id);
+        return view('anggota.edit',compact('anggota'));
     }
 
     /**
@@ -83,13 +85,13 @@ class BarangsController extends Controller
     public function update(Request $request, $id)
     {
         //
-          $barang = barang::findOrFail($id);
-        $barang->jenis_barang= $request->a;
-        $barang->nama_barang= $request->b;
-        $barang->stok = $request->c;
-        $barang->jumlah = $request->d;
-        $barang->save();
-        return redirect('barang');
+           $anggota = anggota::findOrFail($id);
+          $anggota->nama= $request->a;
+        $anggota->jk= $request->b;
+        $anggota->status = $request->c;
+       
+        $anggota->save();
+        return redirect('anggota');
     }
 
     /**
@@ -101,9 +103,9 @@ class BarangsController extends Controller
     public function destroy($id)
     {
         //
-        $barang = barang::findOrFail($id);
-        $barang->delete();
-        return redirect('barang');   
+           $anggota = anggota::findOrFail($id);
+        $anggota->delete();
+        return redirect('anggota');   
 
     }
 }

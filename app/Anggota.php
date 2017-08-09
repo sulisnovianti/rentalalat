@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Anggota;
+use App\peminjam;
+use App\Barang;
 
 class Anggota extends Model
 {
@@ -12,6 +15,8 @@ class Anggota extends Model
     protected $visible = ['nama','jk','status'];
 public $timestamps = true;
 
-public function anggota(){
-	return $this->hasMany('App\Anggota', 'anggota_id');
+public function peminjam(){
+	return $this->belongsTo('App\peminjam', 'peminjam_id');
+}
+
 }
