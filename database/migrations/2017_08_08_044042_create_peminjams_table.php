@@ -15,13 +15,15 @@ class CreatePeminjamsTable extends Migration
     {
         Schema::create('peminjams', function (Blueprint $table) {
             $table->increments('id');
-             $table->date('tgl-pinjam');
+            $table->date('tgl_pinjam');
+
             $table->integer('anggota_id')->unsigned();
             $table->foreign('anggota_id')->references('id')
                   ->on('anggotas')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->integer('jumlah-hari');
+                  
+            $table->integer('jumlah_hari');
 
             $table->integer('barang_id')->unsigned();
             $table->foreign('barang_id')->references('id')

@@ -14,11 +14,16 @@
 		<input type="hidden" name="_method" value="PUT">
 		<input type="hidden" name="_token" value="{{ csrf_token()}}">
 
-			<div class="form-group">
-				<label class="control-label">Jenis Barang</label>
-				<input type="text" name="a" value="{{$barang->jenis_barang}}" class="form-control" required="">
-			</div>
-
+			
+				<div class="form-group">
+				<label class="control-label">Jenis Barang</label><br>
+				<select name="a" value="{{$barang->jenis_barang}}">
+					<option value="Obeng">Obeng</option>
+					<option value="Tang">Tang</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Kabel">kabel</option>
+                    
+				</select>
 				<div class="form-group">
 				<label class="control-label">Nama Barang</label>
 				<input type="text" name="b" value="{{$barang->nama_barang}}" class="form-control" required="">

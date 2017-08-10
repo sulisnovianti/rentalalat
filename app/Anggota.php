@@ -13,10 +13,10 @@ class Anggota extends Model
       protected $table = 'anggotas';
     protected $fillable = ['nama','jk','status'];
     protected $visible = ['nama','jk','status'];
-public $timestamps = true;
+	public $timestamps = true;
 
-public function peminjam(){
-	return $this->belongsTo('App\peminjam', 'peminjam_id');
-}
+	public function peminjam(){
+		return $this->hasMany('App\peminjam', 'anggota_id');
+	}
 
 }

@@ -16,6 +16,6 @@ class Barang extends Model
 public $timestamps = true;
 
 public function peminjam(){
-	return $this->belongsTo('App\peminjam', 'peminjam_id');
+	return $this->hasMany('App\peminjam', 'barang_id');
 }
 }

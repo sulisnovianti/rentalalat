@@ -25,6 +25,7 @@ Route::group(['middleware'=>['auth']], function(){
 	Route::resource('barang','BarangsController');
 	Route::resource('anggota','AnggotasController');
 	Route::resource('peminjam','PeminjamsController');
+	Route::resource('kembali','KembalisController');
 
 
 });

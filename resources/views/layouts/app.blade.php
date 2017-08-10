@@ -42,7 +42,7 @@
                             <li><a href="{{ route('barang.index') }}">Barang</a></li>
                             <li><a href="{{ route('anggota.index') }}">Anggota</a></li>
                             <li><a href="{{ route('peminjam.index') }}">Peminjam</a></li>
-                            
+                            <li><a href="{{ route('kembali.index') }}">Kembali</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

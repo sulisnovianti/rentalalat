@@ -3,21 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Barang;
 use App\peminjam;
-use App\Anggota;
+use App\kembali;
 
 class kembali extends Model
 {
     //
      protected $table = 'kembalis';
-    protected $fillable = ['tgl-kembali','peminjam_id','telat','denda'];
-    protected $visible = ['tgl-kembali','peminjam_id','telat','denda'];
+    protected $fillable = ['tgl_kembali','tgl_pinjam','telat','denda'];
+    protected $visible = ['tgl_kembali','tgl_pinjam','telat','denda'];
     public $timestamps = true;
 
 public function peminjam()
 {
-	return $this->hasMany('App\peminjam', 'peminjam_id');
+	return $this->belongsTo('App\peminjam', 'peminjam_id');
 }
-
 }

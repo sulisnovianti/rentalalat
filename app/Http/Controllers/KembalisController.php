@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\peminjam;
-use App\Barang;
-use App\Anggota;
 use App\kembali;
-
-class PeminjamsController extends Controller
+use App\peminjam;
+class KembalisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,8 @@ class PeminjamsController extends Controller
     public function index()
     {
         //
-       $peminjam = peminjam::all();
-        return view('peminjam.index',compact('peminjam'));
+          $kembali = Kembali::all();
+        return view('kembali.index',compact('kembali'));
     }
 
     /**
@@ -30,9 +27,9 @@ class PeminjamsController extends Controller
     public function create()
     {
         //
-         $anggota = Anggota::all();
-          $barang = Barang::all();
-        return view('peminjam.create',compact('anggota','barang'));
+         $kembali = kembali::all();
+         $peminjam = peminjam::all();
+        return view('kembali.create',compact('kembali','peminjam'));
     }
 
     /**
@@ -44,13 +41,13 @@ class PeminjamsController extends Controller
     public function store(Request $request)
     {
         //
-        $peminjam = new peminjam;
-        $peminjam->tgl_pinjam = $request->a;
-        $peminjam->anggota_id = $request->b;
-        $peminjam->jumlah_hari = $request->c;
-        $peminjam->barang_id = $request->d;
-        $peminjam->save();
-        return redirect('peminjam');
+        $kembali = new kembali;
+        $kembali->tgl_kembali = $request->a;
+        $kembali->tgl_pinjam = $request->b;
+        $kembali->telat = $request->c;
+        $kembali->denda = $request->d;
+        $kembali->save();
+        return redirect('kembali');
     }
 
     /**
@@ -62,10 +59,6 @@ class PeminjamsController extends Controller
     public function show($id)
     {
         //
-           $anggota = Anggota::all();
-          $barang = Barang::all(); 
-           $peminjam = peminjam::findOrFail($id);
-        return view('peminjam.show',compact('peminjam','anggota','barang'));
     }
 
     /**
@@ -77,10 +70,6 @@ class PeminjamsController extends Controller
     public function edit($id)
     {
         //
-         $anggota = Anggota::all();
-          $barang = Barang::all();         
-         $peminjam = peminjam::findOrFail($id);
-        return view('peminjam.edit',compact('peminjam','anggota','barang'));
     }
 
     /**
@@ -93,13 +82,6 @@ class PeminjamsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $peminjam = peminjam::findOrFail($id);
-        $peminjam->tgl_pinjam = $request->a;
-        $peminjam->anggota_id = $request->b;
-        $peminjam->jumlah_hari = $request->c;
-        $peminjam->barang_id = $request->d;
-        $peminjam->save();
-        return redirect('peminjam');
     }
 
     /**
@@ -111,9 +93,5 @@ class PeminjamsController extends Controller
     public function destroy($id)
     {
         //
-        $peminjam = peminjam::findOrFail($id);
-        $peminjam->delete();
-        return redirect('peminjam');   
-
     }
 }

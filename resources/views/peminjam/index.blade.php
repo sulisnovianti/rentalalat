@@ -16,30 +16,33 @@
 					<th>Tgl Pinjam</th>
 					<th>Nama Anggota</th>
 					<th>Jumlah Hari</th>
+					<th>Jenis Barang</th>
 					<th>Nama Barang</th>
+					<th>Stok</th>
 					<th colspan="3">Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($peminjam as $data)
 				<tr>
-					<td>{{$data->tgl-pinjam}}</td>
+					<td>{{$data->tgl_pinjam}}</td>
 					<td>{{$data->anggota->nama}} </td>
-					<td>{{$data->jumlah-hari}}</td>
-					<td>{{$data->barang->nama_barang->jenis_barang->stok}}</td>
-
+					<td>{{$data->jumlah_hari}}</td>
+					<td>{{$data->barang->jenis_barang}}</td>
+					<td>{{$data->barang->nama_barang}}</td>
+					<td>{{$data->barang->stok}}</td>
 
        
                 <td>
-                <a class="btn btn-warning" href="/Peminjam/{{$data->id}}/edit">Edit</a>
+                <a class="btn btn-warning" href="/peminjam/{{$data->id}}/edit">Edit</a>
                 </td>
 
                   <td>
-                <a class="btn btn-primary" href="/Peminjam/{{$data->id}}">show</a>
+                <a class="btn btn-primary" href="/peminjam/{{$data->id}}">show</a>
                 </td>
 
                 <td>
-                	<form action="{{route('Peminjam.destroy',$data->id)}}" method="post" >
+                	<form action="{{route('peminjam.destroy',$data->id)}}" method="post" >
           
                 		<input type="hidden" name="_method"  value="DELETE">
                 		<input type="hidden" name="_token" >

@@ -12,11 +12,17 @@
 	<div class="panel-body">
 		<form action="{{route('barang.store')}}" method="post">
 			{{csrf_field()}}
-			<div class="form-group">
-				<label class="control-label">Jenis Barang</label>
-				<input type="text" name="a" class="form-control" required="">
-			</div>
 
+
+				<div class="form-group">
+				<label class="control-label">Jenis Barang</label><br>
+				<select name="a">
+					<option value="Lab">Lab</option>
+					<option value="Bengkel">Bengkel</option>
+
+				</select>
+
+			
           
 				<div class="form-group">
 				<label class="control-label">Nama Barang</label>
