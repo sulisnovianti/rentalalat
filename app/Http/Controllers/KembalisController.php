@@ -42,8 +42,8 @@ class KembalisController extends Controller
     {
         //
         $kembali = new kembali;
+        $kembali->peminjam_id = $request->b;
         $kembali->tgl_kembali = $request->a;
-        $kembali->tgl_pinjam = $request->b;
         $kembali->telat = $request->c;
         $kembali->denda = $request->d;
         $kembali->save();
@@ -59,6 +59,9 @@ class KembalisController extends Controller
     public function show($id)
     {
         //
+          $peminjam = peminjam::all(); 
+           $kembali = kembali::findOrFail($id);
+        return view('kembali.show',compact('peminjam','kembali'));
     }
 
     /**
@@ -70,6 +73,9 @@ class KembalisController extends Controller
     public function edit($id)
     {
         //
+         $kembali = kembali::findOrFail($id);
+         $peminjam = peminjam::all();
+        return view('peminjam.edit',compact('peminjam','kembali'));
     }
 
     /**
@@ -82,6 +88,13 @@ class KembalisController extends Controller
     public function update(Request $request, $id)
     {
         //
+         $kembali = kembali::findOrFail($id);
+        $kembali->peminjam_id = $request->b;
+        $kembali->tgl_kembali = $request->a;
+        $kembali->telat = $request->c;
+        $kembali->denda = $request->d;
+        $kembali->save();
+        return redirect('kembali');
     }
 
     /**
@@ -93,5 +106,8 @@ class KembalisController extends Controller
     public function destroy($id)
     {
         //
+          $kembali = kembali::findOrFail($id);
+        $kembali->delete();
+        return redirect('kembali');
     }
 }

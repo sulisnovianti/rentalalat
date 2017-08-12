@@ -15,17 +15,17 @@ class CreateKembalisTable extends Migration
     {
         Schema::create('kembalis', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->date('tgl_kembali');
-            $table->integer('telat');
-            $table->integer('denda');
-
+         
             $table->integer('peminjam_id')->unsigned();
             $table->foreign('peminjam_id')->references('id')
                   ->on('peminjams')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
+                  
+            $table->integer('telat');
+            $table->integer('denda');
 
+            
                   
 
             $table->timestamps();

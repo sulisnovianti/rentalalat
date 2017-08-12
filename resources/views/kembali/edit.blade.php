@@ -10,17 +10,16 @@
 	</div></div>
 
 	<div class="panel-body">
-		<form action="{{route('kembali.store')}}" method="post">
-			{{csrf_field()}}
+		<form action="{{route('kembali.update',$kembali->id)}}" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="_token" value="{{ csrf_token()}}">
 
-			<div class="form-group">
-				<label class="control-label">Tgl Pinjam</label>
-				<select class="form-control" name="b">
-					@foreach($peminjam as $data)
-					<option value="{{$data->id}}">{{$data->tgl_pinjam}} </option>
-					@endforeach
-				</select>
-			
+
+		<div class="form-group">
+				<label class="control-label">Tgl Pinjam </label>
+				<input type="date" name="b" value="{{$peminjam->tgl_pinjam}}" class="form-control" required="">
+			</div>
+
 
 			<div class="form-group">
 				<label class="control-label">Tgl Kembali </label>
@@ -38,10 +37,7 @@
 				<label class="control-label">Denda </label>
 				<input type="text" name="d" class="form-control" required="">
 			</div>
- 
-
-				
-           
+            
 
             <div class="form-group">
             	<button type="submit" class="btn btn-success">Simpan</button>
@@ -50,5 +46,7 @@
             </form>
 			</div>
 	</div>
+	</div>
 </div>
+
 @endsection

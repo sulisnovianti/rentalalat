@@ -77,10 +77,11 @@ class PeminjamsController extends Controller
     public function edit($id)
     {
         //
+        $kembali = kembali::all();
          $anggota = Anggota::all();
           $barang = Barang::all();         
          $peminjam = peminjam::findOrFail($id);
-        return view('peminjam.edit',compact('peminjam','anggota','barang'));
+        return view('peminjam.edit',compact('peminjam','anggota','barang','kembali'));
     }
 
     /**

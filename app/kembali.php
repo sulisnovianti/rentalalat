@@ -10,8 +10,8 @@ class kembali extends Model
 {
     //
      protected $table = 'kembalis';
-    protected $fillable = ['tgl_kembali','tgl_pinjam','telat','denda'];
-    protected $visible = ['tgl_kembali','tgl_pinjam','telat','denda'];
+    protected $fillable = ['tgl_kembali','peminjam_id','telat','denda'];
+    protected $visible = ['tgl_kembali','peminjam_id','telat','denda'];
     public $timestamps = true;
 
 public function peminjam()

@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if (Auth::check())
-                            <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                            <li><a href="{{ url('/home') }}">HOME</a></li>
                         @endif
                             <li><a href="{{ route('barang.index') }}">Barang</a></li>
                             <li><a href="{{ route('anggota.index') }}">Anggota</a></li>

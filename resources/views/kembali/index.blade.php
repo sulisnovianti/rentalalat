@@ -13,8 +13,8 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Tgl Kembali</th>
 					<th>Tgl Pinjam</th>
+					<th>Tgl Kembali</th>
 					<th>Telat</th>
 					<th>Denda</th>
 					<th colspan="3">Action</th>
@@ -23,8 +23,8 @@
 			<tbody>
 				@foreach($kembali as $data)
 				<tr>
-					<td>{{$data->tgl_kembali}}</td>
 					<td>{{$data->peminjam->tgl_pinjam}} </td>
+					<td>{{$data->tgl_kembali}}</td>
 					<td>{{$data->telat}}</td>
 					<td>{{$data->denda}}</td>
 					
